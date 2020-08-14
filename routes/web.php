@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.dash');
 });
+
+
+Route::get('category', 'CategoryController@index');
+//Route::get('/category', 'CategoryController@index');
+Route::get('/category/create', 'CategoryController@create');
+Route::post('/category/create', 'CategoryController@store');
+Route::get('/category/{id}/edit', 'CategoryController@edit');
+Route::post('/category/{id}/update', 'CategoryController@update');
+Route::get('/category/{id}/delete', 'CategoryController@delete');
+
