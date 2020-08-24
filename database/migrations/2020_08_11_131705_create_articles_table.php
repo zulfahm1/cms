@@ -1,4 +1,4 @@
-<?php
+a<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->foreignid('category_id');
             $table->string('title');
             $table->text('content');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
         });

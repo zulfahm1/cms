@@ -18,6 +18,9 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+   <!-- ck editor -->
+   <script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
+   @yield('head-script')
 </head>
 
 <body id="page-top">
@@ -94,6 +97,7 @@
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('sbadmin/js/sb-admin-2.min.js') }}"></script>
 
+  @yield('endscript')
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="post" action="/category/create">
+<form method="post" action="/admin/category/create">
 	@csrf
   <div class="form-group">
     <label>Name</label>

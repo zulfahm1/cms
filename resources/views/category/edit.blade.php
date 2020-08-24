@@ -2,7 +2,7 @@
 @section('content')
 <h1> Edit Data</h1>
 
-<form action="/category/{{$category->id}}/update" method="post">
+<form action="/admin/category/{{$category->id}}/update" method="post">
 	@csrf
   <div class="form-group">
     <label>Name</label>

@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Model\Category;
 
-class CategoryController extends Controller
+use Illuminate\Http\Request;
+use App\Model\User;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,9 +13,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $data_category = Category::all();
-        return view('category.index', ['data_category' => $data_category ]);
+    {
+        $data_user = User::all();
+        return view('user.index', ['data_user' => $data_user ]);
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('user.create');
     }
 
     /**
@@ -35,11 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
-        $category->save();
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
 
-        return redirect('/admin/category');
+        return redirect('/admin/user');
     }
 
     /**
@@ -61,8 +64,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('category.edit', ['category' => $category]);
+        $user = User::find($id);
+        return view('user.edit', ['user' => $user ]);
     }
 
     /**
@@ -74,11 +77,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category =  Category::find($id);
-        $category->name = $request->name;
-        $category->save();
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
 
-        return redirect('/admin/category');
+        return redirect('admin/user');
     }
 
     /**
@@ -89,9 +94,8 @@ class CategoryController extends Controller
      */
     public function delete($id)
     {
-        $category = Category::find($id);
-        $category->delete($category);
-        return redirect('/admin/category');
-
+        $user = User::find($id);
+        $user->delete($user);
+        return redirect('/admin/user');
     }
 }
